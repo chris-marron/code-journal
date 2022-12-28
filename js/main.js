@@ -11,7 +11,7 @@ $form.addEventListener('submit', formEvent);
 function formEvent(e) {
   e.preventDefault();
 
-  var test = {
+  var formObj = {
     title: $form.elements.title.value,
     photo: $form.elements.photo.value,
     notes: $form.elements.notes.value,
@@ -21,7 +21,7 @@ function formEvent(e) {
     data.nextEntryId++;
   }
   var $dataentries = data.entries;
-  $dataentries.unshift(test);
+  $dataentries.unshift(formObj);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 }
