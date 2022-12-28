@@ -2,12 +2,6 @@ label {
   line-height: 40px;
 }
 
-form {
-  position: relative;
-  bottom: 120px;
-  height: auto;
-}
-
 .background {
   background-color: #f0f0f0;
 }
