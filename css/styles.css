@@ -1,0 +1,60 @@
+label {
+  line-height: 40px;
+}
+
+.background {
+  background-color: #f0f0f0;
+}
+
+.test {
+  background-color: #562a81;
+}
+
+.headertext {
+  color: white;
+  font-weight: normal;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2%;
+}
+
+.inputside {
+  width: 100%;
+  padding-top: 10px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+
+.notesupdown {
+  width: 100%;
+  height: 120px;
+  border: 1px solid rgb(193, 193, 193);
+  border-radius: 5px;
+}
+
+.btn {
+  background-color: #562a81;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.btno {
+  text-align: end;
+  margin-bottom: 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.try {
+  position: relative;
+  bottom: 100px;
+}
