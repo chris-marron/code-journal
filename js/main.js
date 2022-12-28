@@ -17,11 +17,9 @@ function formEvent(e) {
     notes: $form.elements.notes.value,
     entryId: data.nextEntryId
   };
-  if (e) {
-    data.nextEntryId++;
-  }
-  var $dataentries = data.entries;
-  $dataentries.unshift(formObj);
+  data.nextEntryId++;
+
+  data.entries.unshift(formObj);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 }

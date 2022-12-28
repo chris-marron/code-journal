@@ -63,8 +63,3 @@ label {
 .btn:hover {
   cursor: pointer;
 }
-
-.try {
-  position: relative;
-  bottom: 100px;
-}
