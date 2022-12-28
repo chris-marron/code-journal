@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Proza+Libre:wght@400;500&display=swap');
+
+  </style>
 </head>
 
 <body class="background">
@@ -43,7 +50,8 @@
           </div>
           <div class="column-full">
             <label for="Notes">Notes</label>
-            <div><input type="text" name="notes" id="Notes" class="notesupdown" required></div>
+            <div><textarea name="notes" id="Notes" class="notesupdown" rows="10"></textarea>
+            </div>
           </div>
           <div class="column-full">
             <div class="btno"><button name="button" type="submit" class="btn">SAVE</button></div>
