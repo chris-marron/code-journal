@@ -25,27 +25,31 @@ function formEvent(e) {
 }
 
 function renderEntry(entry) {
-  var ulParent = document.createElement('ul');
-  ulParent.setAttribute('class', 'row');
   var test2 = document.createElement('li');
-  test2.setAttribute('class', 'column-half');
-  ulParent.prepend(test2);
+  test2.setAttribute('class', 'row');
+  var divImg = document.createElement('div');
+  divImg.setAttribute('class', 'column-half');
+  test2.prepend(divImg);
   var test3 = document.createElement('img');
-  test3.setAttribute('src', entry.entries.photo);
-  test2.appendChild(test3);
-  var liSibling = document.createElement('li');
-  liSibling.setAttribute('class', 'column-half');
-  ulParent.appendChild(liSibling);
+  test3.setAttribute('src', entry.photo);
+  divImg.appendChild(test3);
+  var divText = document.createElement('div');
+  divText.setAttribute('class', 'column-half');
+  test2.appendChild(divText);
   var h2li = document.createElement('h2');
-  h2li.textContent = entry.entries.title;
-  liSibling.prepend(h2li);
-  return ulParent;
+  h2li.textContent = entry.title;
+  divText.prepend(h2li);
+  var pLi = document.createElement('p');
+  pLi.textContent = entry.notes;
+  divText.appendChild(pLi);
+  return test2;
 }
-var test = document.querySelector('.hidden');
-document.addEventListener('DOMContentLoaded', function (e) {
-  for (var i in data.entries) {
+
+document.addEventListener('DOMContentLoaded', domContent);
+function domContent(e) {
+  var test = document.querySelector('#uldata');
+  for (var i = 0; i < data.entries.length; i++) {
     var tes19 = renderEntry(data.entries[i]);
     test.appendChild(tes19);
-
   }
-});
+}

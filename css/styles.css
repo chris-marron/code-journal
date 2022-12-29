@@ -83,3 +83,7 @@ li {
   line-height: 1.5em;
   padding-bottom: 15px;
 }
+
+img {
+  width: 100%;
+}
