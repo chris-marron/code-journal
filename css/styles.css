@@ -78,3 +78,8 @@ li > h2 {
   margin-top: 0;
   font-weight: bold;
 }
+
+li {
+  line-height: 1.5em;
+  padding-bottom: 15px;
+}
