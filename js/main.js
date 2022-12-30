@@ -53,3 +53,17 @@ function domContent(e) {
     test.appendChild(tes19);
   }
 }
+
+function toggleNoEntries(eve) {
+  eve.className = 'hidden';
+}
+toggleNoEntries();
+function viewSwap(view) {
+  if (!view.matches('.active')) {
+    view.className = '.hidden';
+  }
+}
+
+var anchor = document.querySelector('.anchor');
+
+anchor.addEventListener('click', viewSwap);

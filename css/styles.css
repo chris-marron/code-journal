@@ -12,6 +12,14 @@ label {
   font-weight: bold;
 }
 
+.anchor {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: white;
+}
+
 .background {
   background-color: #f0f0f0;
 }
@@ -86,4 +94,16 @@ li {
 
 img {
   width: 100%;
+}
+
+.entries-btn {
+  text-align: end;
+}
+
+.nah {
+  background-color: #562a81;
+  color: white;
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 5px;
 }

@@ -21,15 +21,14 @@
   <header class="bakckgroundofcj">
     <div class="container">
       <div class="row">
-        <div class="column-full">
-          <h2 class="headertext">Code Journal</h2>
-        </div>
+        <h2 class="headertext">Code Journal</h2>
+        <a class="anchor" href="#">Entries</a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <div data-view="entry-form">
+    <div data-view="entry-form" class="active">
       <form action="">
         <div class="row">
           <div class="column-full">
@@ -59,8 +58,14 @@
 
 
     <div data-view="entries" class="hidden">
-      <p>No entries have been recorded</p>
+      <div class="row">
+        <div class="testone">
+          <h1 class="testone">Entries</h1>
+          <div class="fast"><a class="nah" href="#">NEW</a></div>
+        </div>
+      </div>
       <ul id="uldata">
+        <li>No entries have been recorded</li>
 
       </ul>
 
