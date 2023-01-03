@@ -12,6 +12,10 @@ label {
   font-weight: bold;
 }
 
+.row {
+  display: flex;
+}
+
 .anchor {
   position: relative;
   top: 20px;
@@ -106,4 +110,8 @@ img {
   text-decoration: none;
   padding: 7px 12px;
   border-radius: 5px;
+}
+
+.justify-content {
+  justify-content: center;
 }
