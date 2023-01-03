@@ -44,23 +44,34 @@ function renderEntry(entry) {
   divText.appendChild(pLi);
   return test2;
 }
-
+var test = document.querySelector('#uldata');
 document.addEventListener('DOMContentLoaded', domContent);
 function domContent(e) {
-  var test = document.querySelector('#uldata');
+
   for (var i = 0; i < data.entries.length; i++) {
     var tes19 = renderEntry(data.entries[i]);
     test.appendChild(tes19);
+    viewSwap(data.view);
+    toggleNoEntries();
   }
 }
-
+var $hideEntries = document.querySelector('#no-entries');
 function toggleNoEntries(eve) {
-  eve.className = 'hidden';
+  if (test.hasChildNodes) {
+    $hideEntries.setAttribute('class', 'hidden');
+  } else {
+    $hideEntries.setAttribute('class', 'row');
+  }
 }
-toggleNoEntries();
+var viewList = document.querySelectorAll('[data-view]');
 function viewSwap(view) {
-  if (!view.matches('.active')) {
-    view.className = '.hidden';
+  data.view = view;
+  for (var index = 0; index < viewList.length; index++) {
+    if (viewList[index].getAttribute('data-view') === view) {
+      viewList[index].className = '';
+    } else {
+      viewList[index].className = 'hidden';
+    }
   }
 }
 
