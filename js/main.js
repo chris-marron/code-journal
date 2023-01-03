@@ -87,5 +87,7 @@ function currentView(e) {
 }
 
 var anchor = document.querySelector('.anchor');
+var $newButton = document.querySelector('.nah');
 
 anchor.addEventListener('click', currentView);
+$newButton.addEventListener('click', currentView);
