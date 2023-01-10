@@ -23,45 +23,45 @@ function formEvent(e) {
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
   var newDomTree = renderEntry(formObj);
-  test.prepend(newDomTree);
+  $uldata.prepend(newDomTree);
   viewSwap('entries');
   toggleNoEntries();
 }
 
 function renderEntry(entry) {
-  var test2 = document.createElement('li');
-  test2.setAttribute('class', 'row');
+  var $li = document.createElement('li');
+  $li.setAttribute('class', 'row');
   var divImg = document.createElement('div');
   divImg.setAttribute('class', 'column-half');
-  test2.prepend(divImg);
-  var test3 = document.createElement('img');
-  test3.setAttribute('src', entry.photo);
-  divImg.appendChild(test3);
+  $li.prepend(divImg);
+  var $img = document.createElement('img');
+  $img.setAttribute('src', entry.photo);
+  divImg.appendChild($img);
   var divText = document.createElement('div');
   divText.setAttribute('class', 'column-half');
-  test2.appendChild(divText);
+  $li.appendChild(divText);
   var h2li = document.createElement('h2');
   h2li.textContent = entry.title;
   divText.prepend(h2li);
   var pLi = document.createElement('p');
   pLi.textContent = entry.notes;
   divText.appendChild(pLi);
-  return test2;
+  return $li;
 }
-var test = document.querySelector('#uldata');
+var $uldata = document.querySelector('#uldata');
 document.addEventListener('DOMContentLoaded', domContent);
 function domContent(e) {
 
   for (var i = 0; i < data.entries.length; i++) {
-    var tes19 = renderEntry(data.entries[i]);
-    test.appendChild(tes19);
+    var dataRender = renderEntry(data.entries[i]);
+    $uldata.appendChild(dataRender);
     viewSwap(data.view);
     toggleNoEntries();
   }
 }
 var $hideEntries = document.querySelector('#no-entries');
 function toggleNoEntries(eve) {
-  if (test.hasChildNodes) {
+  if ($uldata.hasChildNodes) {
     $hideEntries.setAttribute('class', 'hidden');
   } else {
     $hideEntries.setAttribute('class', 'row');

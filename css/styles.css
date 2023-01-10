@@ -110,8 +110,18 @@ img {
   text-decoration: none;
   padding: 7px 12px;
   border-radius: 5px;
+  height: 40%;
+  margin-top: 5vh;
 }
 
 .justify-content {
   justify-content: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
 }
