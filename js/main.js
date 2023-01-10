@@ -96,3 +96,24 @@ var $newButton = document.querySelector('.nah');
 
 anchor.addEventListener('click', currentView);
 $newButton.addEventListener('click', currentView);
+
+$uldata.addEventListener('click', function (e) {
+  var $allData = document.querySelector('[data-entry-id]');
+  var $dataEntryId = $allData.getAttribute('data-entry-id');
+  $dataEntryId = Number($dataEntryId);
+  if (e.target.tagName === 'I') {
+    viewSwap('entry-form');
+    for (var i = 0; i < data.entries.length; i++) {
+
+      if (data.entries[i].entryId === $dataEntryId) {
+        data.editing = data.entries[i];
+        $img.setAttribute('src', data.entries[i].photo);
+        $form.elements.title.value = data.entries[i].title;
+        $form.elements.photo.value = data.entries[i].photo;
+        $form.elements.notes.value = data.entries[i].notes;
+        var $header = document.querySelector('.header');
+        $header.textContent = 'Edit Entry';
+      }
+    }
+  }
+});
