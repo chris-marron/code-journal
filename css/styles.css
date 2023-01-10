@@ -12,6 +12,18 @@ label {
   font-weight: bold;
 }
 
+.row {
+  display: flex;
+}
+
+.anchor {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  text-decoration: none;
+  color: white;
+}
+
 .background {
   background-color: #f0f0f0;
 }
@@ -62,4 +74,54 @@ label {
 
 .btn:hover {
   cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.li-image {
+  width: 100%;
+  border-radius: 1%;
+}
+
+li > h2 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+li {
+  line-height: 1.5em;
+  padding-bottom: 15px;
+}
+
+img {
+  width: 100%;
+}
+
+.entries-btn {
+  text-align: end;
+}
+
+.nah {
+  background-color: #562a81;
+  color: white;
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 5px;
+  height: 40%;
+  margin-top: 5vh;
+}
+
+.justify-content {
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
 }
