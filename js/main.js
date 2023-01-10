@@ -17,15 +17,48 @@ function formEvent(e) {
     notes: $form.elements.notes.value,
     entryId: data.nextEntryId
   };
-  data.nextEntryId++;
+  if (data.editing === null) {
+    data.nextEntryId++;
 
-  data.entries.unshift(formObj);
+    data.entries.unshift(formObj);
+    $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+
+    var newDomTree = renderEntry(formObj);
+    $uldata.prepend(newDomTree);
+  }
+
+  if (data.editing !== null) {
+    var editedObj = {
+      entryId: data.editing.entryId,
+      notes: $form.elements.notes.value,
+      photo: $form.elements.photo.value,
+      title: $form.elements.title.value
+
+    };
+    var newRender = renderEntry(editedObj);
+    for (var i = 0; i < data.entries.length; i++) {
+
+      if (data.entries[i].entryId === data.editing.entryId) {
+
+        data.entries.splice(i, 1, editedObj);
+      }
+      var $liEntries = document.querySelectorAll('li');
+
+      for (var a = 0; a < $liEntries.length; a++) {
+
+        var numLi = Number($liEntries[a].getAttribute('data-entry-id'));
+        if (numLi === editedObj.entryId) {
+          $liEntries[a].replaceWith(newRender);
+          $header.textContent = 'New Entry';
+        }
+      }
+    }
+  }
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $form.reset();
-  var newDomTree = renderEntry(formObj);
-  $uldata.prepend(newDomTree);
   viewSwap('entries');
   toggleNoEntries();
+  data.editing = null;
+  $form.reset();
 }
 
 function renderEntry(entry) {
@@ -46,7 +79,7 @@ function renderEntry(entry) {
   divText.prepend(h2li);
   var pencil = document.createElement('i');
   pencil.setAttribute('class', 'fa-solid fa-pencil');
-  divText.prepend(pencil);
+  divText.appendChild(pencil);
   var pLi = document.createElement('p');
   pLi.textContent = entry.notes;
   divText.appendChild(pLi);
@@ -96,8 +129,9 @@ var $newButton = document.querySelector('.nah');
 
 anchor.addEventListener('click', currentView);
 $newButton.addEventListener('click', currentView);
+var $header = document.querySelector('.header');
 
-$uldata.addEventListener('click', function (e) {
+function rickOg(e) {
   var $allData = document.querySelector('[data-entry-id]');
   var $dataEntryId = $allData.getAttribute('data-entry-id');
   $dataEntryId = Number($dataEntryId);
@@ -111,9 +145,9 @@ $uldata.addEventListener('click', function (e) {
         $form.elements.title.value = data.entries[i].title;
         $form.elements.photo.value = data.entries[i].photo;
         $form.elements.notes.value = data.entries[i].notes;
-        var $header = document.querySelector('.header');
         $header.textContent = 'Edit Entry';
       }
     }
   }
-});
+}
+$uldata.addEventListener('click', rickOg);
