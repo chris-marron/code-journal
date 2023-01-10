@@ -31,6 +31,7 @@ function formEvent(e) {
 function renderEntry(entry) {
   var $li = document.createElement('li');
   $li.setAttribute('class', 'row');
+  $li.setAttribute('data-entry-id', entry.entryId);
   var divImg = document.createElement('div');
   divImg.setAttribute('class', 'column-half');
   $li.prepend(divImg);
@@ -43,9 +44,13 @@ function renderEntry(entry) {
   var h2li = document.createElement('h2');
   h2li.textContent = entry.title;
   divText.prepend(h2li);
+  var pencil = document.createElement('i');
+  pencil.setAttribute('class', 'fa-solid fa-pencil');
+  divText.prepend(pencil);
   var pLi = document.createElement('p');
   pLi.textContent = entry.notes;
   divText.appendChild(pLi);
+
   return $li;
 }
 var $uldata = document.querySelector('#uldata');
