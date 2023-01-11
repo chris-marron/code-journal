@@ -21,10 +21,11 @@
   <div class="modal hidden">
     <div class="modal-box">
       <div class="column-full">
-        <h3>Are you sure you want to delete this entry?</h3>
+        <h3 class="smaller-text">Are you sure you want to delete this entry?</h3>
       </div>
-      <div class="column-half"><button class="cancel">CANCEL</button></div>
-      <div class="column-half"><button class="confirm">CONFIRM</button></div>
+      <div class="column-half justify-content-around"><button class="cancel">CANCEL</button><button
+          class="confirm">CONFIRM</button></div>
+
     </div>
   </div>
   <header class="bakckgroundofcj">
@@ -61,11 +62,11 @@
             <div><textarea name="notes" id="Notes" class="notesupdown" rows="10"></textarea>
             </div>
           </div>
-          <div class="column-half">
-            <button class="delete-btn hidden " type="button">Delete Entry</button>
-          </div>
-          <div class="column-half">
-            <div class="btndiv"><button name="button" type="submit" class="btn">SAVE</button></div>
+          <div class="column-full">
+            <div class="btndiv">
+              <div class="delete-btn-div"><a class="delete-btn hidden" href="#">Delete Entry</a></div>
+              <div class="save-btn-div"><button name="button" type="submit" class="btn">SAVE</button></div>
+            </div>
           </div>
         </div>
       </form>
@@ -85,9 +86,7 @@
       <div id="no-entries" class="row justify-content">
         <p>No entries have been recorded</p>
       </div>
-      <ul id="uldata">
-
-      </ul>
+      <ul id="uldata"></ul>
 
     </div>
   </main>
