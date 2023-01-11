@@ -12,14 +12,23 @@ label {
   font-weight: bold;
 }
 
-.row {
+.align {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nav {
+  padding: 0.9rem 1.25rem;
+}
+
+.nav1 {
+  padding: 0.8rem 1.25rem;
 }
 
 .anchor {
-  position: relative;
-  top: 20px;
-  left: 20px;
   text-decoration: none;
   color: white;
 }
@@ -30,6 +39,12 @@ label {
 
 .bakckgroundofcj {
   background-color: #562a81;
+}
+
+.code-journal {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .headertext {
@@ -135,4 +150,26 @@ i {
 
 i:hover {
   cursor: pointer;
+}
+
+.modal {
+  background: black;
+  opacity: 80%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  font-family: sans-serif;
+  display: flex;
+  flex-wrap: wrap;
 }

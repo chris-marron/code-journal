@@ -149,8 +149,13 @@ function pencilClick(e) {
         $form.elements.photo.value = data.entries[i].photo;
         $form.elements.notes.value = data.entries[i].notes;
         $header.textContent = 'Edit Entry';
+
       }
     }
   }
 }
 $uldata.addEventListener('click', pencilClick);
+
+var $delete = document.querySelector('.delete-btn');
+$delete.addEventListener('click', function (e) {
+});
