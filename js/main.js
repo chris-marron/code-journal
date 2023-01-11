@@ -41,17 +41,18 @@ function formEvent(e) {
       if (data.entries[i].entryId === data.editing.entryId) {
 
         data.entries.splice(i, 1, editedObj);
-      }
-      var $liEntries = document.querySelectorAll('li');
+        var $liEntries = document.querySelectorAll('li');
 
-      for (var a = 0; a < $liEntries.length; a++) {
+        for (var a = 0; a < $liEntries.length; a++) {
 
-        var numLi = Number($liEntries[a].getAttribute('data-entry-id'));
-        if (numLi === editedObj.entryId) {
-          var newRender = renderEntry(editedObj);
-          $liEntries[a].replaceWith(newRender);
-          $header.textContent = 'New Entry';
+          var numLi = Number($liEntries[a].getAttribute('data-entry-id'));
+          if (numLi === editedObj.entryId) {
+            var newRender = renderEntry(editedObj);
+            $liEntries[a].replaceWith(newRender);
+            $header.textContent = 'New Entry';
+          }
         }
+
       }
     }
   }
@@ -134,7 +135,7 @@ anchor.addEventListener('click', currentView);
 $newButton.addEventListener('click', currentView);
 var $header = document.querySelector('.header');
 
-function rickOg(e) {
+function pencilClick(e) {
   var $dataEntryId = e.target.getAttribute('data-entry-id');
   $dataEntryId = Number($dataEntryId);
   if (e.target.matches('i')) {
@@ -152,4 +153,4 @@ function rickOg(e) {
     }
   }
 }
-$uldata.addEventListener('click', rickOg);
+$uldata.addEventListener('click', pencilClick);
