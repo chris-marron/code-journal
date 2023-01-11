@@ -125,7 +125,10 @@ function currentView(e) {
   if (e.target.matches('#entries-view')) {
     viewSwap('entries');
   }
-  if (e.target.matches('#create-new')) { viewSwap('entry-form'); }
+  if (e.target.matches('#create-new')) {
+    viewSwap('entry-form');
+    $delete.setAttribute('class', 'delete-btn hidden');
+  }
 }
 
 var anchor = document.querySelector('.anchor');
@@ -140,6 +143,7 @@ function pencilClick(e) {
   $dataEntryId = Number($dataEntryId);
   if (e.target.matches('i')) {
     viewSwap('entry-form');
+    $delete.setAttribute('class', 'delete-btn');
     for (var i = 0; i < data.entries.length; i++) {
 
       if (data.entries[i].entryId === $dataEntryId) {
