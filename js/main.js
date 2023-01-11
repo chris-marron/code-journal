@@ -35,7 +35,7 @@ function formEvent(e) {
       title: $form.elements.title.value
 
     };
-    var newRender = renderEntry(editedObj);
+
     for (var i = 0; i < data.entries.length; i++) {
 
       if (data.entries[i].entryId === data.editing.entryId) {
@@ -48,6 +48,7 @@ function formEvent(e) {
 
         var numLi = Number($liEntries[a].getAttribute('data-entry-id'));
         if (numLi === editedObj.entryId) {
+          var newRender = renderEntry(editedObj);
           $liEntries[a].replaceWith(newRender);
           $header.textContent = 'New Entry';
         }
@@ -78,7 +79,9 @@ function renderEntry(entry) {
   h2li.textContent = entry.title;
   divText.prepend(h2li);
   var pencil = document.createElement('i');
-  pencil.setAttribute('class', 'fa-solid fa-pencil');
+  pencil.classList.add('fa-solid');
+  pencil.classList.add('fa-pencil');
+  pencil.setAttribute('data-entry-id', entry.entryId);
   divText.appendChild(pencil);
   var pLi = document.createElement('p');
   pLi.textContent = entry.notes;
@@ -132,10 +135,9 @@ $newButton.addEventListener('click', currentView);
 var $header = document.querySelector('.header');
 
 function rickOg(e) {
-  var $allData = document.querySelector('[data-entry-id]');
-  var $dataEntryId = $allData.getAttribute('data-entry-id');
+  var $dataEntryId = e.target.getAttribute('data-entry-id');
   $dataEntryId = Number($dataEntryId);
-  if (e.target.tagName === 'I') {
+  if (e.target.matches('i')) {
     viewSwap('entry-form');
     for (var i = 0; i < data.entries.length; i++) {
 
