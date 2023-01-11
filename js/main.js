@@ -161,5 +161,14 @@ function pencilClick(e) {
 $uldata.addEventListener('click', pencilClick);
 
 var $delete = document.querySelector('.delete-btn');
+var $modal = document.querySelector('.modal');
+var $cancel = document.querySelector('.cancel');
+var $confirm = document.querySelector('.confirm');
 $delete.addEventListener('click', function (e) {
+  $modal.setAttribute('class', 'modal');
+  $cancel.addEventListener('click', function (eve) {
+    $modal.setAttribute('class', 'hidden');
+  });
+  $confirm.addEventListener('click', function (event) {
+  });
 });
