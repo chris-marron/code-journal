@@ -170,5 +170,20 @@ $delete.addEventListener('click', function (e) {
     $modal.setAttribute('class', 'hidden');
   });
   $confirm.addEventListener('click', function (event) {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === data.editing.entryId) {
+
+        data.entries.splice(i, 1);
+        toggleNoEntries();
+        var $deletli = document.querySelectorAll('li');
+        for (var q = 0; q < $deletli.length; q++) {
+          if (Number($deletli[q].getAttribute('data-entry-id')) === data.editing.entryId) {
+            $deletli[q].remove();
+          }
+        }
+      }
+    }
+    $modal.setAttribute('class', 'hidden');
+    viewSwap('entries');
   });
 });
