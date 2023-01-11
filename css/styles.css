@@ -111,7 +111,7 @@ img {
   padding: 7px 12px;
   border-radius: 5px;
   height: 40%;
-  margin-top: 5vh;
+  margin-top: 2.5vh;
 }
 
 .justify-content {
@@ -124,4 +124,15 @@ img {
 
 .justify-content-between {
   justify-content: space-between;
+}
+
+i {
+  color: #562a81;
+  float: right;
+  position: relative;
+  bottom: 38px;
+}
+
+i:hover {
+  cursor: pointer;
 }
