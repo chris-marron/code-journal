@@ -102,11 +102,12 @@ function domContent(e) {
   }
 }
 var $hideEntries = document.querySelector('#no-entries');
+
 function toggleNoEntries(eve) {
-  if ($uldata.hasChildNodes) {
+  if ($uldata.hasChildNodes()) {
     $hideEntries.setAttribute('class', 'hidden');
   } else {
-    $hideEntries.setAttribute('class', 'row');
+    $hideEntries.setAttribute('class', 'row justify-content');
   }
 }
 var viewList = document.querySelectorAll('[data-view]');
@@ -125,7 +126,10 @@ function currentView(e) {
   if (e.target.matches('#entries-view')) {
     viewSwap('entries');
   }
-  if (e.target.matches('#create-new')) { viewSwap('entry-form'); }
+  if (e.target.matches('#create-new')) {
+    viewSwap('entry-form');
+    $delete.setAttribute('class', 'delete-btn hidden');
+  }
 }
 
 var anchor = document.querySelector('.anchor');
@@ -140,6 +144,7 @@ function pencilClick(e) {
   $dataEntryId = Number($dataEntryId);
   if (e.target.matches('i')) {
     viewSwap('entry-form');
+    $delete.setAttribute('class', 'delete-btn');
     for (var i = 0; i < data.entries.length; i++) {
 
       if (data.entries[i].entryId === $dataEntryId) {
@@ -149,8 +154,48 @@ function pencilClick(e) {
         $form.elements.photo.value = data.entries[i].photo;
         $form.elements.notes.value = data.entries[i].notes;
         $header.textContent = 'Edit Entry';
+
       }
     }
   }
 }
 $uldata.addEventListener('click', pencilClick);
+
+var $delete = document.querySelector('.delete-btn');
+var $modal = document.querySelector('.modal');
+var $cancel = document.querySelector('.cancel');
+var $confirm = document.querySelector('.confirm');
+$delete.addEventListener('click', function (e) {
+  $modal.setAttribute('class', 'modal');
+  $cancel.addEventListener('click', function (eve) {
+    $modal.setAttribute('class', 'hidden');
+  });
+});
+
+$confirm.addEventListener('click', okOk);
+function okOk(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === data.editing.entryId) {
+
+      data.entries.splice(i, 1);
+      var $deletli = document.querySelectorAll('li');
+      for (var q = 0; q < $deletli.length; q++) {
+        if (Number($deletli[q].getAttribute('data-entry-id')) === data.editing.entryId) {
+          $deletli[q].remove();
+
+        }
+
+      }
+
+    }
+
+  }
+  toggleNoEntries();
+  $header.textContent = 'New Entry';
+  $modal.setAttribute('class', 'hidden');
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  data.editing = null;
+
+  $form.reset();
+  viewSwap('entries');
+}

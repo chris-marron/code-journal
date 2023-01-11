@@ -2,6 +2,10 @@ body {
   font-family: "Proza Libre", sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 h2 {
   font-weight: lighter;
   font-size: 20px;
@@ -12,14 +16,23 @@ label {
   font-weight: bold;
 }
 
-.row {
+.align {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nav {
+  padding: 0.9rem 1.25rem;
+}
+
+.nav1 {
+  padding: 0.8rem 1.25rem;
 }
 
 .anchor {
-  position: relative;
-  top: 20px;
-  left: 20px;
   text-decoration: none;
   color: white;
 }
@@ -30,6 +43,12 @@ label {
 
 .bakckgroundofcj {
   background-color: #562a81;
+}
+
+.code-journal {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 .headertext {
@@ -63,13 +82,19 @@ label {
   color: white;
   border: none;
   padding: 7px 12px;
-  margin-top: 20px;
+  margin-top: 15px;
   border-radius: 5px;
 }
 
-.btndiv {
-  text-align: end;
-  margin-bottom: 10px;
+.delete-btn-div {
+  float: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.save-btn-div {
+  float: right;
+  margin-bottom: 20px;
 }
 
 .btn:hover {
@@ -135,4 +160,64 @@ i {
 
 i:hover {
   cursor: pointer;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  width: 350px;
+  padding: 20px 15px;
+}
+
+.cancel,
+.confirm {
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.confirm {
+  background-color: #dc2625;
+  color: white;
+  float: right;
+}
+
+.cancel {
+  float: left;
+  background-color: #b6b6b6;
+}
+
+.smaller-text {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.delete-btn {
+  color: #dc2625;
+  font-size: small;
+}
+
+@media screen and (min-width: 768px) {
+  .confirm {
+    margin-left: 100%;
+  }
+
+  .justify-content-around {
+    display: flex;
+  }
 }
